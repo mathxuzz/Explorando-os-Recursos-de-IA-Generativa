@@ -1,0 +1,15 @@
+import json
+
+def salvar_dados(dados, arquivo):
+    with open(arquivo, 'w') as f:
+        json.dump(dados, f)
+
+def carregar_dados(arquivo):
+    with open(arquivo, 'r') as f:
+        return json.load(f)
+
+# Exemplo de uso
+dados = {"conversa": "exemplo de conversa"}
+salvar_dados(dados, 'conversa.json')
+dados_carregados = carregar_dados('conversa.json')
+print(dados_carregados)
