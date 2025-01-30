@@ -1,0 +1,8 @@
+def gerar_poesia(tema):
+    prompt = f"Escreva uma poesia sobre {tema}."
+    return gerar_texto(prompt)
+
+# Exemplo de uso
+tema = "o mar"
+poesia = gerar_poesia(tema)
+print(poesia)
