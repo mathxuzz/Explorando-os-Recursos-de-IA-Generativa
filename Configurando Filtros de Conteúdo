@@ -1,0 +1,10 @@
+def moderar_conteudo(texto):
+    response = openai.Moderation.create(
+        input=texto
+    )
+    return response['results'][0]
+
+# Exemplo de uso
+texto_para_moderar = "Este é um texto ofensivo."
+resultado_moderacao = moderar_conteudo(texto_para_moderar)
+print(resultado_moderacao)
