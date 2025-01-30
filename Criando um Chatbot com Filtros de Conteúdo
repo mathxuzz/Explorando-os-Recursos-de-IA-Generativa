@@ -1,0 +1,26 @@
+def chatbot():
+    print("Bem-vindo ao Chatbot! Digite 'sair' para encerrar.")
+    while True:
+        user_input = input("Você: ")
+        if user_input.lower() == 'sair':
+            break
+        
+        # Moderar a entrada do usuário
+        moderacao = moderar_conteudo(user_input)
+        if moderacao['flagged']:
+            print("Bot: Desculpe, não posso responder a isso.")
+            continue
+        
+        # Gerar resposta
+        resposta = gerar_texto(user_input)
+        
+        # Moderar a resposta gerada
+        moderacao_resposta = moderar_conteudo(resposta)
+        if moderacao_resposta['flagged']:
+            print("Bot: Desculpe, não posso fornecer uma resposta para isso.")
+            continue
+        
+        print(f"Bot: {resposta}")
+
+# Iniciar o chatbot
+chatbot()
